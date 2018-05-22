@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'><nta><declaration>// Place global declarations here.
+chan get_center,leave_center;
+clock x;
+</declaration><template><name x="5" y="5">vehicle</name><declaration>// Place local declarations here.
+</declaration><location id="id0" x="-296" y="8"><name x="-328" y="16">green</name></location><location id="id1" x="-144" y="8"><name x="-160" y="24">yellow</name></location><location id="id2" x="-144" y="-128"><name x="-154" y="-158">red</name></location><location id="id3" x="-296" y="-128"><name x="-312" y="-168">begin</name></location><init ref="id3"/><transition><source ref="id0"/><target ref="id3"/><label kind="guard" x="-356" y="-90">x&gt;=10</label><label kind="synchronisation" x="-392" y="-80">leave_center!</label><label kind="assignment" x="-356" y="-60">x:=0</label></transition><transition><source ref="id1"/><target ref="id0"/><label kind="guard" x="-280" y="-22">x&gt;=2</label><label kind="assignment" x="-280" y="8">x:=0</label></transition><transition><source ref="id2"/><target ref="id1"/><label kind="guard" x="-204" y="-90">x&gt;=10</label><label kind="synchronisation" x="-136" y="-88">get_center!</label><label kind="assignment" x="-204" y="-60">x:=0</label></transition><transition><source ref="id3"/><target ref="id2"/><label kind="assignment" x="-280" y="-128">x:=0</label></transition></template><template><name>center</name><location id="id4" x="-632" y="-264"><name x="-642" y="-294">taken</name></location><location id="id5" x="-824" y="-256"><name x="-834" y="-286">free</name></location><init ref="id5"/><transition><source ref="id4"/><target ref="id5"/><label kind="synchronisation" x="-768" y="-200">leave_center?</label><nail x="-736" y="-200"/><nail x="-736" y="-200"/></transition><transition><source ref="id5"/><target ref="id4"/><label kind="synchronisation" x="-768" y="-344">get_center?</label><nail x="-760" y="-320"/></transition></template><template><name>timer</name><location id="id6" x="-208" y="-80"></location><init ref="id6"/></template><system>// Place template instantiations here.
+//hijab zahid
+//123563
+vehicle1 = vehicle();
+vehicle2 = vehicle();
+vehicle3 = vehicle();
+vehicle4 = vehicle();
+
+// List one or more processes to be composed into a system.
+system vehicle1,center,vehicle2,vehicle3,vehicle4;</system></nta>
